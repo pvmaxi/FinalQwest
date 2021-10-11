@@ -17,24 +17,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/frame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/back">
-
-        <fragment
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edit"
-                android:width="40dp"
-                android:hint="40"/>
-
-        </fragment>
-
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
