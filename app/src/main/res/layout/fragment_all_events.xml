@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".AllEventsFragment"
+    android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
-
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:textColor="@color/black"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"/>
+        android:layout_height="match_parent"
+        android:text="Сдесь должен быть весь список!"
+        android:textColor="@color/black"/>
 
 </FrameLayout>

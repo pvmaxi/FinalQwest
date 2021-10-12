@@ -14,10 +14,5 @@ class SortListActivity : AppCompatActivity() {
         binding = ActivitySortListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttonTwo.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .add(binding.frame.id, FirstFragment())
-                .commit()
-        }
     }
 }

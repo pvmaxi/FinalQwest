@@ -14,16 +14,22 @@ class FirstActivity : AppCompatActivity() {
         binding = ActivityFirstBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.newEvent.setOnClickListener {
-            startActivity(Intent(this, NewEventActivity::class.java))
+        binding.newEvent.setOnClickListener{
+            supportFragmentManager.beginTransaction()
+                .add(binding.frame.id, TwoFragment())
+                .commit()
         }
 
-        binding.List.setOnClickListener {
-            startActivity(Intent(this, ListEventsActivity::class.java))
+        binding.List.setOnClickListener{
+            supportFragmentManager.beginTransaction()
+                .add(binding.frame.id, AllEventsFragment())
+                .commit()
         }
 
-        binding.sort.setOnClickListener {
-            startActivity(Intent(this, SortListActivity::class.java))
+        binding.sort.setOnClickListener{
+            supportFragmentManager.beginTransaction()
+                .add(binding.frame.id, SortListFragment())
+                .commit()
         }
     }
 }
