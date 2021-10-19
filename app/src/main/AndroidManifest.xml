@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".SortListActivity"></activity>
-        <activity android:name=".ListEventsActivity" />
-        <activity android:name=".NewEventActivity" />
+        <activity
+            android:name=".holderActivity"
+            android:exported="false" />
         <activity android:name=".FirstActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

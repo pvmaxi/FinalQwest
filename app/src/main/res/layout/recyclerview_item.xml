@@ -3,16 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ListEventsActivity"
-    tools:ignore="MissingConstraints"
-    android:background="@color/white">
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    tools:ignore="MissingConstraints">
 
     <TextView
-        android:id="@+id/button_one"
+        android:id="@+id/textViewLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12345"
-        android:textColor="@color/black"/>
+        android:layout_marginTop="10dp"
+        android:text="Text"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

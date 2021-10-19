@@ -11,7 +11,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Сдесь не помешал бы фильтр!"
+        android:text="Здесь не помешал бы фильтр!"
         android:textColor="@color/black"/>
 
 </FrameLayout>

@@ -11,7 +11,10 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:textColor="@color/black"
+        android:textColor="#0AA2A3"
+        android:text="FirstWindow"
+        android:textSize="70sp"
+        android:fontFamily="@font/condiment"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"/>
 
 </FrameLayout>

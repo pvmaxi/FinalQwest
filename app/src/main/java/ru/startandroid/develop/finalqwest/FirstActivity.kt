@@ -1,6 +1,6 @@
 package ru.startandroid.develop.finalqwest
 
-import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ru.startandroid.develop.finalqwest.databinding.ActivityFirstBinding
@@ -20,7 +20,7 @@ class FirstActivity : AppCompatActivity() {
                 .commit()
         }
 
-        binding.List.setOnClickListener{
+        binding.List.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .add(binding.frame.id, AllEventsFragment())
                 .commit()
