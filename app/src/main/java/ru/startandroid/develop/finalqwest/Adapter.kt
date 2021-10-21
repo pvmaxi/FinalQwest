@@ -11,15 +11,26 @@ class EventAdapter(private var events: List<Event>) : RecyclerView.Adapter<Event
     class Holder(var binding: RecyclerviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(events: Event) {
             binding.textViewLarge.text = events.name
+            binding.textTitle.text = events.type
+            binding.openClick.setOnClickListener {
+                val oldPosition = openedItemPos
+                openedItemPos = adapterPosition
+                oldPosition?.let { i -> notifyItemChanged(i) }
+                notifyItemChanged(adapterPosition)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        return Holder(RecyclerviewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        val inflater = LayoutInflater.from(parent.context)
+        return if (viewType == opened)
+            OpenedVH(RecyclerviewItemBinding.inflate(inflater, parent, false))
+        else
+            ClosedVH(RecyclerviewItemBinding.inflate(inflater, parent, false))
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(events[position])
+        if (holder is ClosedVH) holder.bind(events[position])
     }
 
     override fun getItemCount(): Int {

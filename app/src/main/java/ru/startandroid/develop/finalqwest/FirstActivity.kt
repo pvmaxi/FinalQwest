@@ -3,6 +3,8 @@ package ru.startandroid.develop.finalqwest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import ru.startandroid.develop.finalqwest.databinding.ActivityFirstBinding
 
 class FirstActivity : AppCompatActivity() {
@@ -31,5 +33,11 @@ class FirstActivity : AppCompatActivity() {
                 .add(binding.frame.id, SortListFragment())
                 .commit()
         }
+
+    }
+    fun setFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(binding.frame.id, fragment)
+            .commit()
     }
 }

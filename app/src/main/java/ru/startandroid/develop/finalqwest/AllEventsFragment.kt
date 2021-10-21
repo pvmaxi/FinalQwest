@@ -33,12 +33,7 @@ class AllEventsFragment : Fragment() {
         val events = listOf<EventAdapter.Event>(
             EventAdapter.Event(),
             EventAdapter.Event(),
-            EventAdapter.Event(),
-            EventAdapter.Event(),
-            EventAdapter.Event(),
-            EventAdapter.Event(),
-            EventAdapter.Event(),
-            EventAdapter.Event(),
+            EventAdapter.Event("Andre"),
             EventAdapter.Event(),
             EventAdapter.Event(),
             EventAdapter.Event(),
@@ -51,5 +46,4 @@ class AllEventsFragment : Fragment() {
 
         binding.recyclerView.adapter = EventAdapter(events)
     }
-
 }
