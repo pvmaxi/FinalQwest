@@ -32,15 +32,31 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewLarge" />
 
     <ImageView
-        android:id="@+id/open_click"
+        android:id="@+id/close_click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_title"
-        app:srcCompat="@drawable/ic_open" />
+        app:layout_constraintTop_toBottomOf="@+id/all_text"
+        app:srcCompat="@drawable/ic_close" />
+
+    <TextView
+        android:id="@+id/all_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="25dp"
+        android:text="All text"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

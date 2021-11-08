@@ -33,7 +33,7 @@ class AllEventsFragment : Fragment() {
         val events = listOf<EventAdapter.Event>(
             EventAdapter.Event(),
             EventAdapter.Event(),
-            EventAdapter.Event("Andre"),
+            EventAdapter.Event("Andre", type = "Others", allText = "Да, да, здесь тоже текст события."),
             EventAdapter.Event(),
             EventAdapter.Event(),
             EventAdapter.Event(),

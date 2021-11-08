@@ -4,33 +4,54 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.startandroid.develop.finalqwest.databinding.RecyclerviewItemBinding
+import ru.startandroid.develop.finalqwest.databinding.RecyclerviewItemOpenedBinding
 import java.util.*
 
-class EventAdapter(private var events: List<Event>) : RecyclerView.Adapter<EventAdapter.Holder>() {
+class EventAdapter(private var events: List<Event>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    class Holder(var binding: RecyclerviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    var openedItemPos: Int? = null
+
+    inner class Closed(var binding: RecyclerviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(events: Event) {
             binding.textViewLarge.text = events.name
             binding.textTitle.text = events.type
             binding.openClick.setOnClickListener {
-                val oldPosition = openedItemPos
+                val standartPos = openedItemPos
                 openedItemPos = adapterPosition
-                oldPosition?.let { i -> notifyItemChanged(i) }
+                standartPos?.let { i -> notifyItemChanged(i) }
                 notifyItemChanged(adapterPosition)
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val inflater = LayoutInflater.from(parent.context)
-        return if (viewType == opened)
-            OpenedVH(RecyclerviewItemBinding.inflate(inflater, parent, false))
-        else
-            ClosedVH(RecyclerviewItemBinding.inflate(inflater, parent, false))
+    inner class Opened(var binding: RecyclerviewItemOpenedBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(events: Event) {
+            binding.textViewLarge.text = events.name
+            binding.textTitle.text = events.type
+            binding.allText.text = events.allText
+            binding.closeClick.setOnClickListener {
+                openedItemPos = null
+                notifyItemChanged(adapterPosition)
+            }
+        }
     }
 
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-        if (holder is ClosedVH) holder.bind(events[position])
+    override fun getItemViewType(position: Int): Int {
+        return if (position == openedItemPos) 1
+        else 2
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return if (viewType == 1)
+            Opened(RecyclerviewItemOpenedBinding.inflate(inflater, parent, false))
+        else
+            Closed(RecyclerviewItemBinding.inflate(inflater, parent, false))
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is Closed) holder.bind(events[position])
+        else if (holder is Opened) holder.bind(events[position])
     }
 
     override fun getItemCount(): Int {
@@ -40,6 +61,7 @@ class EventAdapter(private var events: List<Event>) : RecyclerView.Adapter<Event
     class Event(
         var name: String = "Max",
         var date: Date = Date(),
-        var type: String = "Birthday"
+        var type: String = "Birthday",
+        var allText: String = "Здесь будет текст события. Твой собственный текст!"
     )
 }
